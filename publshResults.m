@@ -6,7 +6,14 @@ subfolderName = 'publishedResults';
 
 % Construct the full path to the subfolder
 outputFolderPath = fullfile(pwd, subfolderName);
+% Prompt the user to enter file names separated by commas
+input_files = input('Enter file names separated by commas: ', 's');
 
+% Split the input string by commas to get individual file names
+filesToExecute = strsplit(input_files, ',');
+
+% Remove any leading or trailing whitespaces from file names
+filesToExecute = strtrim(filesToExecute);
 % Create the subfolder if it does not exist, or clear its contents if it does
 if ~exist(outputFolderPath, 'dir')
     mkdir(outputFolderPath);
@@ -22,8 +29,10 @@ else
     end
 end
 
+
+
 % List of files for which code should be executed
-filesToExecute = {'p3'}; % Base names without '.m'
+%filesToExecute = {'p4_i', 'p4_ii', 'p4_iii'}; % Base names without '.m'
 
 % Name of this script file to exclude it from publishing
 currentScript = mfilename;
@@ -61,7 +70,7 @@ for i = 1:length(files)
 
     subfolderName = 'publishedResults';
     outputFolderPath = fullfile(pwd, subfolderName);
-    filesToExecute = {'p4_i', 'p4_ii', 'p4_iii'};
+    filesToExecute = {'Problem3'};
     currentScript = mfilename;
     files = dir(fullfile(pwd, '*.m'));
 end
