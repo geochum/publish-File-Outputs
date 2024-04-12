@@ -54,7 +54,7 @@ for i = 1:length(files)
     fileName = files(i).name;
 
     % Skip the current script file
-    if strcmp(nameOnly, currentScript)
+    if strcmp(fileName, currentScript)
         continue;
     end
 
